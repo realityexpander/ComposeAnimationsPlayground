@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.math.MathUtils.clamp
 import com.realityexpander.composeanimations.ui.theme.ComposeAnimationsTheme
 import java.lang.Math.abs
+import kotlin.math.sin
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class) // for AnimatedContent
@@ -238,8 +239,11 @@ class MainActivity : ComponentActivity() {
                                                 modifier = Modifier
                                                     .size(50.dp)
                                                     .rotate(rotate)
+                                                    .offset(y = (sin(-rotate * (3.1415925f /360f))*80f).dp)
                                                     .background(color = Color.Yellow)
-                                            )
+                                            ) {
+                                                Text(text = "Hello World", color = Color.Black)
+                                            }
                                         }
                                     }
                                 } else {
